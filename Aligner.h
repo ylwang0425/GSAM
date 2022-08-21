@@ -10,12 +10,15 @@
 #include "MatchResult.h"
 #include "DpParser.h"
 #include <ostream>
+#include <cstdio>
 #include "ArgsParser.h"
 #include "AlignmentResult.h"
 #include "concurrentqueue/concurrentqueue.h"
 #include "boost/thread.hpp"
+#include "json/json/json.h"
 struct Aligner{
-
+    bool beautiful_json;
+    vector<string> file_names;
     AlignmentGraph graph;
     int tolerant_length;
     bool include_cigar;
@@ -31,9 +34,12 @@ struct Aligner{
     moodycamel::ConcurrentQueue<pair<int,FastQ>> aq;
     Aligner(AlignmentGraph& g,Args& args,exSAM& sam);
     void alignReads();
-    string alignRead(FastQ& fastqs);
+    string gfaAlignRead(FastQ& fastqs);
+    string jsonAlignRead(FastQ& fastqs);
     void MutiAlignRead();
     void print_path_res(path_res& path,string& read_name);
     AlignmentResult transPathResToAlignmentResult(path_res& path,string& read_name,string& s,string &cigar);
+    AlignmentResult transPathResToJsonResult(path_res& path,string& read_name,string& s,string &cigar);
+    string transCigarToJsonString(string s,int start,string& cigar,vector<node_res>);
 };
 #endif //GSAM_ALIGNER_H

@@ -1,5 +1,5 @@
-flag = -std=c++17
-cpps = main.cpp ArgsParser.cpp GfaGraph.cpp AlignmentGraph.cpp exSAM.cpp Aligner.cpp fastqloader.cpp MatchResult.cpp DpParser.cpp AlignmentResult.cpp
+flag = -std=c++17 -O3 -Wall -Wextra
+cpps = main.cpp ArgsParser.cpp GfaGraph.cpp AlignmentGraph.cpp exSAM.cpp Aligner.cpp fastqloader.cpp MatchResult.cpp DpParser.cpp AlignmentResult.cpp json/jsoncpp.cpp
 options = -lboost_program_options -lboost_thread -lboost_system
 
 main: main.cpp ArgsParser.cpp

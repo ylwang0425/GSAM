@@ -14,3 +14,25 @@ string AlignmentResult::getGFALine(bool include_cigar){
     if (include_cigar) ss << "\t" << "cg:Z:" << cigarStr;
     return ss.str();
 }
+
+
+string AlignmentResult::getJsonLine(bool beautiful_json) {
+    Json::Value root;
+//    cout<<s<<endl;
+//    cout<<startPos<<" "<<endPos-startPos+1<<endl;
+    root["sequence"] = s.substr(startPos,endPos-startPos+1);
+    root["path"]=path;
+    root["name"] = queryName;
+    root["score"]= mismatches + deletes + inserts;
+    root["query_position"] = startPos;
+    root["identity"] = ((double)matches / (double)(matches + mismatches + deletes + inserts));
+    string res;
+    if(beautiful_json){
+        Json::StyledWriter writer;
+        res = writer.write(root);
+    }else{
+        Json::FastWriter writer;
+        res = writer.write(root);
+    }
+    return res.substr(0,res.size()-1);
+}

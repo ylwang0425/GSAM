@@ -11,6 +11,7 @@ struct Args{
     vector<string> outGafFile;
     int tolerant_length;
     double penalty_ratio;
+    bool beautiful_json;
     bool include_cigar;
     bool accurate_model;
     int threads;

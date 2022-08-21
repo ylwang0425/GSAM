@@ -7,6 +7,7 @@
 #include<iostream>
 #include<cstdio>
 #include<sstream>
+#include "json/json/json.h"
 using namespace std;
 struct AlignmentResult{
     string queryName;
@@ -15,6 +16,7 @@ struct AlignmentResult{
     int end;
     char direction;
     string path;
+    string s;
     int pathLen;
     int startPos;
     int endPos;
@@ -30,5 +32,6 @@ struct AlignmentResult{
     AlignmentResult alignmentResult();
     string cigarStr;
     string getGFALine(bool include_cigar);
+    string getJsonLine(bool beautiful_json);
 };
 #endif //GSAM_ALIGNMENTRESULT_H
