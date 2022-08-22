@@ -48,16 +48,13 @@ $$
 $$
 firstpos(cur) = len(cur)-1
 $$
-
 $$
 id(cur) = getId(cur)
 $$
-
 复制状态时需要令
 $$
 firstpos(clone) = firstpos(q)
 $$
-
 $$
 id(clone) = id(q)
 $$
