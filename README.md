@@ -46,18 +46,15 @@ $$
 
 首先对所有sequence忽略掉图的结构建立广义后缀自动机，下图为广义后缀自动机的一个例子。并且在建立自动机的时候进行预处理。创建状态时令，
 $$
-firstpos(cur) = len(cur)-1
-$$<br />
-$$
+firstpos(cur) = len(cur)-1<br/>
 id(cur) = getId(cur)
-$$<br />
+$$
+
 复制状态时需要令
 $$
-firstpos(clone) = firstpos(q)
-$$<br />
-$$
+firstpos(clone) = firstpos(q)<br/>
 id(clone) = id(q)
-$$<br />
+$$
 ![image](https://user-images.githubusercontent.com/56342176/185861357-3612df49-79a8-4e5e-9117-9d133463252c.png)
 $$
 图1
