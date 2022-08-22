@@ -78,7 +78,7 @@ $id(clone) = id(q)$<br/>
 
 下图(a)、(b)为有一个错误的图上匹配
 
-![图片3](C:\Users\ASUS\Desktop\gsam\图片3.png)
+![图片3](https://user-images.githubusercontent.com/56342176/185888199-79fbc97e-f6ee-4d7e-a13b-ae4ca49ad06e.png)
 
 <p align="center">图3</p>
 
@@ -93,13 +93,14 @@ $id(clone) = id(q)$<br/>
 
 然后根据这四个匹配串然后推理出路径。这里暴力枚举每个匹配串为起点，然后如果两个匹配串在图上的距离小于d（这是一个参数，默认设置了100，图小的话改小一点）的时候，就将匹配串连起来。如果从某一个起点开始，连起来的路径超过read长度的一半的时候停止。
 
-这么做理论上最坏时间复杂度是![img](file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml7848\wps8.jpg)但是，这和匈牙利算法差不多，理论是![img](file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml7848\wps9.jpg)实际上远小于![img](file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml7848\wps10.jpg)，正常情况下，第一个或者第二个匹配串做为起点就能把路径给找出来了。所以实际运行中，这么干基本上是线性的。
+这么做理论上最坏时间复杂度是![wps8](https://user-images.githubusercontent.com/56342176/185888788-864c1a8c-a94c-4644-87af-b0e2ec2c6788.jpg)
+但是，这和匈牙利算法差不多，理论是![wps8](https://user-images.githubusercontent.com/56342176/185888819-4af3fab8-8531-4dea-a728-871c0f41fc1d.jpg)实际上远小于![wps8](https://user-images.githubusercontent.com/56342176/185888832-aa6c409b-f509-4561-a115-503afb2162e3.jpg)，正常情况下，第一个或者第二个匹配串做为起点就能把路径给找出来了。所以实际运行中，这么干基本上是线性的。
 
 ##### dp获得cigar字符串
 
-如果直接将read和按照路径拼起来的路径进行dp时间复杂度太高。所以对那些已经匹配的匹配串不管，记成匹配(Match)，只对没有的匹配的部分进行dp。按照最短编辑距离（https://www.luogu.com.cn/problem/P2758）进行dp。
+如果直接将read和按照路径拼起来的路径进行dp时间复杂度太高。所以对那些已经匹配的匹配串不管，记成匹配(Match)，只对没有的匹配的部分进行dp。按照最短编辑距离<a href="https://www.luogu.com.cn/problem/P2758">（https://www.luogu.com.cn/problem/P2758）<a/>进行dp。
 
-![img](file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml7848\wps11.jpg) 
+![wps11](https://user-images.githubusercontent.com/56342176/185889106-7f80d0bd-ca99-4160-bcf6-22c08a2c37d3.jpg)
 
-dp的时候记录状态的转移，然后进行回溯。就得到cigar字符串。这个时间复杂度理论上是远小于最坏时间复杂度![img](file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml7848\wps12.jpg)，d上面讲过默认设置了100所以最坏也是线性的。
+dp的时候记录状态的转移，然后进行回溯。就得到cigar字符串。这个时间复杂度理论上是远小于最坏时间复杂度![img]![wps12](https://user-images.githubusercontent.com/56342176/185889125-bd656290-112e-4486-8bb3-6619d39c2a87.jpg)，d上面讲过默认设置了100所以最坏也是线性的。
 
