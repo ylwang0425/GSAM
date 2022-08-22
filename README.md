@@ -102,5 +102,5 @@ $id(clone) = id(q)$<br/>
 
 ![wps11](https://user-images.githubusercontent.com/56342176/185889106-7f80d0bd-ca99-4160-bcf6-22c08a2c37d3.jpg)
 
-dp的时候记录状态的转移，然后进行回溯。就得到cigar字符串。这个时间复杂度理论上是远小于最坏时间复杂度![img]![wps12](https://user-images.githubusercontent.com/56342176/185889125-bd656290-112e-4486-8bb3-6619d39c2a87.jpg)，d上面讲过默认设置了100所以最坏也是线性的。
+dp的时候记录状态的转移，然后进行回溯。就得到cigar字符串。这个时间复杂度理论上是远小于最坏时间复杂度![wps12](https://user-images.githubusercontent.com/56342176/185889125-bd656290-112e-4486-8bb3-6619d39c2a87.jpg)，d上面讲过默认设置了100所以最坏也是线性的。
 
