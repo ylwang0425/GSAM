@@ -98,7 +98,7 @@ $id(clone) = id(q)$<br/>
 
 ##### dp获得cigar字符串
 
-如果直接将read和按照路径拼起来的路径进行dp时间复杂度太高。所以对那些已经匹配的匹配串不管，记成匹配(Match)，只对没有的匹配的部分进行dp。按照最短编辑距离<a href="https://www.luogu.com.cn/problem/P2758 " >(https://www.luogu.com.cn/problem/P2758）<a/>进行dp。
+如果直接将read和按照路径拼起来的路径进行dp时间复杂度太高。所以对那些已经匹配的匹配串不管，记成匹配(Match)，只对没有的匹配的部分进行dp。按照最短编辑距离<a href="https://www.luogu.com.cn/problem/P2758 " >(https://www.luogu.com.cn/problem/P2758)<a/>进行dp。
 
 ![wps11](https://user-images.githubusercontent.com/56342176/185889106-7f80d0bd-ca99-4160-bcf6-22c08a2c37d3.jpg)
 
