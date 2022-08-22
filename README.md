@@ -62,8 +62,7 @@ $$
 $$
 id(clone) = id(q)
 $$
-
-![img](file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml7848\wps1.png)
+![image](https://user-images.githubusercontent.com/56342176/185861357-3612df49-79a8-4e5e-9117-9d133463252c.png)
 $$
 图1
 $$
@@ -72,5 +71,6 @@ $$
 
 在没有任何错误的情况下read匹配到图上序列的时候，对自动机进行左右方向的拓展。就如图2来说首先“T”匹配到3节点的第一个字符。由于序列图上没有“TA”所以第一段匹配失败了，对“T”这个匹配段向正向和反向拓展，发现没法匹配。所以第一次匹配结束匹配结果是>3[0]。然后从A开始重新匹配“ACGTACGT”这一段，结果为2[0-7]。然后对“ACGTACGT”这段进行正向和反向拓展，正向拓展了4号节点的“ACTT”，然后反向拓展1号节点的“T”。因此第二段匹配了1[7]>2[0-7]>4[0]。
 
-![img](file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml7848\wps5.png)
+![图2](https://user-images.githubusercontent.com/56342176/185861500-fdce73fb-859d-4fa8-bf30-b242afc55afd.jpg)
+
 
