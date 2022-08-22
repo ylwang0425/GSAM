@@ -50,7 +50,6 @@ firstpos(cur) = len(cur)-1
 $$
 
 $$
-
 id(cur) = getId(cur)
 $$
 
