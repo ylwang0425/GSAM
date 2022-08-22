@@ -8,7 +8,7 @@
 
 可以使用`sudo apt install libboost-all-dev`
 
-或者使用conda但是作者研究了半天还是没有研究出来怎么include虚拟环境下的boost，救救孩子吧。
+或者使用conda但是作者研究了半天还是没有研究出来怎么include虚拟环境下的boost。
 
 #### 运行
 
