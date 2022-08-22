@@ -27,9 +27,9 @@
 `-a`输出文件，目前支持json和gaf文件，可以输出多个文件-a out1 -a out2
 
 `-p`惩罚系数，假入说惩罚系数为p
-$$
+$
 alignmentScore = 读段长度 - （1+p/(1-p)）*错误个数
-$$
+$
 
 
 `--tolerant-length=x`两个后缀自动机拓展段的最长距离默认为100
@@ -44,21 +44,15 @@ $$
 
 ##### 建立后缀自动机
 
-首先对所有sequence忽略掉图的结构建立广义后缀自动机，下图为广义后缀自动机的一个例子。并且在建立自动机的时候进行预处理。创建状态时令，
-$$
-firstpos(cur) = len(cur)-1<br/>
-id(cur) = getId(cur)
-$$
+首先对所有sequence忽略掉图的结构建立广义后缀自动机，下图为广义后缀自动机的一个例子。并且在建立自动机的时候进行预处理。创建状态时令，<br/>
+$firstpos(cur) = len(cur)$<br/>
+$id(cur) = getId(cur)$<br/>
 
-复制状态时需要令
-$$
-firstpos(clone) = firstpos(q)<br/>
-id(clone) = id(q)
-$$
-![image](https://user-images.githubusercontent.com/56342176/185861357-3612df49-79a8-4e5e-9117-9d133463252c.png)
-$$
-图1
-$$
+复制状态时需要令<br/>
+$firstpos(clone) = firstpos(q)$<br/>
+$id(clone) = id(q)$<br/>
+![image](https://user-images.githubusercontent.com/56342176/185861357-3612df49-79a8-4e5e-9117-9d133463252c.png)<br/>
+$图1$
 
 ##### 后缀自动机拓展
 
