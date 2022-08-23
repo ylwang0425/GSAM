@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
-
+#include <zstr.hpp>
 
 class FastQ {
 public:
@@ -59,6 +59,7 @@ public:
 				if (line.size() == 0) continue;
 				if (line[0] == '>') break;
 				if (line.back() == '\r') line.pop_back();
+                while(line.back()==0)line.pop_back();
 				newread.sequence += line;
 			} while (file.good());
 			if (includeQuality)
@@ -83,7 +84,18 @@ public:
 		std::ifstream file {filename};
 		streamFastqFastaFromStream(file, includeQuality, f);
 	}
-
+    template <typename F>
+    static void streamFastqFastqFromGzippedFile(std::string filename, bool includeQuality, F f)
+    {
+        zstr::ifstream file { filename };
+        streamFastqFastqFromStream(file, includeQuality, f);
+    }
+    template <typename F>
+    static void streamFastqFastaFromGzippedFile(std::string filename, bool includeQuality, F f)
+    {
+        zstr::ifstream file { filename };
+        streamFastqFastaFromStream(file, includeQuality, f);
+    }
 	template <typename F>
 	static void streamFastqFromFile(std::string filename, bool includeQuality, F f)
 	{
@@ -104,7 +116,7 @@ public:
 		{
 			if (gzipped)
 			{
-//				streamFastqFastaFromGzippedFile(originalFilename, includeQuality, f);
+				streamFastqFastaFromGzippedFile(originalFilename, includeQuality, f);
 //              TODO 开发从gizp中读取fasta
 				return;
 			}
@@ -118,7 +130,7 @@ public:
 		{
 			if (gzipped)
 			{
-//				streamFastqFastqFromGzippedFile(originalFilename, includeQuality, f);
+				streamFastqFastqFromGzippedFile(originalFilename, includeQuality, f);
 //              TODO 开发从gizp中读取fastq
 				return;
 			}

@@ -38,7 +38,7 @@ boost::program_options::variables_map parse_args_to_map(int argc, char** argv){
 Args parse_args(boost::program_options::variables_map vm){
     Args args;
     args.include_cigar = true;
-    args.tolerant_length = 80;
+    args.tolerant_length = 100;
     args.penalty_ratio = 0.66;
     args.threads = 1;
     args.beautiful_json = false;

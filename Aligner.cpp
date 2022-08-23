@@ -12,7 +12,7 @@ beautiful_json(args.beautiful_json),file_names(args.outGafFile), graph(g),
                                                               tolerant_length(args.tolerant_length),
                                                               penalty_radio(args.penalty_ratio), penalty_coefficient(
                 1.0 + (args.penalty_ratio / (1.0 - args.penalty_ratio))) {
-
+    bp_count = 0;
 }
 
 void Aligner::MutiAlignRead() {
@@ -54,6 +54,7 @@ void Aligner::alignReads() {
             fprintf(file, "%s\n", resString[j].c_str());
         } else continue;
     }
+    cerr<<" aligned "<<bp_count<<"bps"<<endl;
 }
 
 void Aligner::print_path_res(path_res &path, string &read_name) {
@@ -295,6 +296,7 @@ string Aligner::gfaAlignRead(FastQ &fastQ) {
     }
     path_res path = path_res::merge_path(graph, res, tolerant_length, s.size());
     vector<merge_res> path_node = path.path;
+    bp_count+=path.mergeRes.match_size;
     if (path_node.size() == 0) {
         return "";
     } else {
@@ -349,6 +351,7 @@ string Aligner::jsonAlignRead(FastQ &fastQ) {
     }
     path_res path = path_res::merge_path(graph, res, tolerant_length, s.size());
     vector<merge_res> path_node = path.path;
+    bp_count+=path.mergeRes.match_size;
     if (path_node.size() == 0) {
         return "";
     } else {

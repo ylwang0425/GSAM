@@ -12,7 +12,7 @@ std::vector<FastQ> loadFastqFromFile(std::string filename, bool includeQuality)
 }
 
 //int main(){
-//    std::vector<FastQ> fastq = loadFastqFromFile("/home/wyl/CLionProjects/GSAM/test/chr4_GL000008v2_random_read1000.fa");
+//    std::vector<FastQ> fastq = loadFastqFromFile("/home/wyl/CLionProjects/GSAM/test/read1000.fa.gz");
 //    for (int i = 0; i < fastq.size(); ++i) {
 //        FastQ t = fastq[i];
 //        std::cout<<t.seq_id<<" "<<t.sequence<<" "<<t.quality<<std::endl;

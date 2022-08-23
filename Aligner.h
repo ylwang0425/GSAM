@@ -17,6 +17,7 @@
 #include "boost/thread.hpp"
 #include "json/json/json.h"
 struct Aligner{
+    int bp_count;
     bool beautiful_json;
     vector<string> file_names;
     AlignmentGraph graph;
