@@ -52,18 +52,18 @@ $alignmentScore = 读段长度 - （1+p/(1-p)）*错误个数$
 
 首先对所有sequence忽略掉图的结构建立广义后缀自动机，下图为广义后缀自动机的一个例子。并且在建立自动机的时候进行预处理。创建状态时令，<br/>
 <p align="center">
-$firstpos(cur) = len(cur)$
+firstpos(cur) = len(cur)
 <br/>
-$id(cur) = getId(cur)$
+id(cur) = getId(cur)
 <br/>
 </p>
 
 
 复制状态时需要令<br/>
 <p align="center">
-$firstpos(clone) = firstpos(q)$
+firstpos(clone) = firstpos(q)
 <br/>
-$id(clone) = id(q)$
+id(clone) = id(q)
 <br/>
 </p>
 
