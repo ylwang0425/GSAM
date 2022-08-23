@@ -72,6 +72,7 @@ $id(clone) = id(q)$<br/>
 
 ![图2](https://user-images.githubusercontent.com/56342176/185865907-c9f84ea5-d7c7-419f-99f5-e0a3b07677b1.png)
 <p align="center">图2</p>
+
 ##### 解决read里面有错误的问题
 
 下图(a)、(b)为有一个错误的图上匹配
